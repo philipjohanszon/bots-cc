@@ -24,6 +24,8 @@
 
 ## Description
 
+FOR EDUCATIONAL PURPOSES ONLY!
+
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
