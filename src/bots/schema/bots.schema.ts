@@ -9,6 +9,9 @@ export class Bot {
   version: string;
 
   @Prop({ type: String, required: true })
+  versionUrl: string;
+
+  @Prop({ type: String, required: true })
   ip: string;
 
   @Prop({
@@ -21,6 +24,15 @@ export class Bot {
       masterUrl: string;
     };
   };
+
+  @Prop({ type: Array, required: true })
+  commands: Array<string>;
+
+  @Prop({ type: Date, default: Date.now() + 1000 * 60 * 5, required: true })
+  expiresAt: Date;
 }
 
-export const BotSchema = SchemaFactory.createForClass(Bot);
+export const BotSchema = SchemaFactory.createForClass(Bot).index(
+  { expiresAt: 1 },
+  { expireAfterSeconds: 0 },
+);
